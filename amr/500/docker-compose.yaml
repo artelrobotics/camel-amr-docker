@@ -1,0 +1,19 @@
+version: '3'
+services:
+  camel:
+    image: camel:500-001
+    environment:
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /dev:/dev
+    network_mode: host
+    devices:
+      - /dev:/dev
+    privileged: true
+    command: ./start.sh
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [all]
