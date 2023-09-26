@@ -1,0 +1,13 @@
+kiwisolver
+scipy
+pyserial
+filterpy
+numpy
+pyyaml
+pyusb
+dalybms==0.3.0
+catkin-tools
+pillow
+decorator
+multidict
+twisted==18.9.0
