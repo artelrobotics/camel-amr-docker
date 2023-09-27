@@ -3,7 +3,6 @@ scipy
 pyserial
 filterpy
 numpy
-pyyaml
 pyusb
 dalybms==0.3.0
 catkin-tools
