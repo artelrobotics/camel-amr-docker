@@ -9,6 +9,7 @@ RUN git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/artelrobotics/c
 RUN git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/artelrobotics/camel_urdf.git  -b camel_500
 
 WORKDIR ${ROBOT_WS}/src/arobotics_joystick
+RUN git pull origin
 RUN git checkout camel_500
 
 WORKDIR ${ROBOT_WS}
