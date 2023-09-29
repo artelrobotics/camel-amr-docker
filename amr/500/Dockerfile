@@ -8,6 +8,9 @@ WORKDIR ${ROBOT_WS}/src
 RUN git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/artelrobotics/camel_robot.git -b camel_500
 RUN git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/artelrobotics/camel_urdf.git  -b camel_500
 
+WORKDIR ${ROBOT_WS}/src/arobotics_joystick
+RUN git checkout camel_500
+
 WORKDIR ${ROBOT_WS}
 RUN rosdep update
 RUN rosdep install --from-paths src --ignore-src -r -y
