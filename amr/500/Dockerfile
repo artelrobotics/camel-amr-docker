@@ -3,6 +3,7 @@ FROM ros-amr:noetic-camel
 ARG GIT_USERNAME
 ARG GIT_PASSWORD
 ARG DS4=false
+ENV DS4=${DS4}
 
 WORKDIR ${ROBOT_WS}/src
 RUN git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/artelrobotics/camel_robot.git -b camel_500
@@ -12,10 +13,13 @@ WORKDIR ${ROBOT_WS}/src/arobotics_joystick
 RUN git pull origin
 RUN git checkout camel_500
 
+WORKDIR ${ROBOT_WS}/src
+RUN git clone https://github.com/artelrobotics/docking_server.git -b camel_500
+
 WORKDIR ${ROBOT_WS}
 RUN rosdep update
 RUN rosdep install --from-paths src --ignore-src -r -y
-RUN catkin build camel_robot camel_urdf
+RUN catkin build camel_robot camel_urdf docking_server arobotics_joystick
 
 # Install ds4drv if DS4=true
 RUN if [ "$DS4" = "true" ]; then \
