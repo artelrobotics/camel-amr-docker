@@ -62,6 +62,7 @@ RUN git clone https://github.com/artelrobotics/navigation.git -b noetic-devel
 RUN git clone https://github.com/artelrobotics/costmap_wait_clear_recovery.git
 RUN git clone https://github.com/artelrobotics/costmap_total_recovery.git
 RUN git clone https://github.com/artelrobotics/depthimage_to_laserscan.git
+RUN git clone https://github.com/CCNYRoboticsLab/imu_tools -b noetic
 
 # Build packages in catkin workspace
 WORKDIR ${ROBOT_WS}
