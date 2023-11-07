@@ -15,11 +15,11 @@ RUN git checkout camel_500
 
 WORKDIR ${ROBOT_WS}/src
 RUN git clone https://github.com/artelrobotics/docking_server.git -b camel_500
-
+RUN git clone https://github.com/kam3k/laser_line_extraction.git -b master
 WORKDIR ${ROBOT_WS}
 RUN rosdep update
 RUN rosdep install --from-paths src --ignore-src -r -y
-RUN catkin build camel_robot camel_urdf docking_server arobotics_joystick
+RUN catkin build camel_robot camel_urdf docking_server arobotics_joystick laser_line_extraction
 
 # Install ds4drv if DS4=true
 RUN if [ "$DS4" = "true" ]; then \
