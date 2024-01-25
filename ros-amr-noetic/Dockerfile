@@ -63,6 +63,7 @@ RUN git clone https://github.com/artelrobotics/costmap_wait_clear_recovery.git
 RUN git clone https://github.com/artelrobotics/costmap_total_recovery.git
 RUN git clone https://github.com/artelrobotics/depthimage_to_laserscan.git
 RUN git clone https://github.com/CCNYRoboticsLab/imu_tools -b noetic
+RUN git clone https://github.com/artelrobotics/als_ros.git
 
 # Build packages in catkin workspace
 WORKDIR ${ROBOT_WS}
